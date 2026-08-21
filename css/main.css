@@ -1,0 +1,193 @@
+:root {
+    --background-color: #182433;
+    --background-color-oscuro: #171a21;
+    --text-color: white;
+    --base-font-size: 1rem;
+    --nav-text-color: #DCDEDF;
+    --steam-card-hover: #1e2c3d;
+    --steam-tag-text: #9fb8d6;
+    --steam-celeste: #1A9FFF;
+}
+
+body {
+    font-family: 'motiva-sans', sans-serif;
+    font-weight: 100;
+    margin: 30px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+@font-face {
+    font-family: 'motiva-sans';
+    src: url('fonts/MotivaSansThin.woff2') format('woff2'),
+        url('fonts/MotivaSansThin.woff') format('woff'),
+        url('fonts/MotivaSansThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'motiva-sans';
+    src: url('fonts/MotivaSans.woff2') format('woff2'),
+        url('fonts/MotivaSans.woff') format('woff'),
+        url('fonts/MotivaSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'motiva-sans';
+    src: url('fonts/MotivaSansBold.woff2') format('woff2'),
+        url('fonts/MotivaSansBold.woff') format('woff'),
+        url('fonts/MotivaSansBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    color: var(--nav-text-color);
+    font-weight: bold;
+}   
+
+
+.nav-link.active {
+    color:var(--steam-celeste) !important;
+    text-decoration: underline;
+    text-underline-offset: 0.6rem;
+}
+
+.form-control::placeholder{
+    color: var(--nav-text-color);
+    opacity: 1;
+}
+
+textarea{
+    resize: none;
+}
+
+.logos{
+    height: 100%;
+    width: 100%;
+    transition: transform 0.3s ease;
+    position: relative;
+    display: block;
+    object-fit: contain;
+}
+
+.logos:hover{
+    transform: scale(1.2);
+}
+
+.subtitulo{
+    font-weight: bold;
+}
+
+.wrapper{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 8rem;
+}
+
+.wrapper p{
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-weight: bold;
+    text-align: center;
+    color: var(--nav-text-color);
+}
+
+.wrapper:hover p{
+    opacity: 1;
+}
+
+
+.carrusel-juegos{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    scroll-behavior: smooth;
+    padding-bottom: 4rem;
+}
+
+.carrusel-juegos::-webkit-scrollbar{height: 4rem;}
+.carrusel-juegos::-webkit-scrollbar-thumb{background: var(--background-color); border-radius: 2rem;}
+.carrusel-juegos::-webkit-scrollbar-track{background: transparent;}
+
+
+.card-juego{
+  flex: 0 0 260px;
+  background: var(--background-color);
+  border-radius: 3px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  cursor: pointer;
+}
+.card-juego:hover{
+  transform: translateY(-3px);
+  background: var(--steam-card-hover);
+  box-shadow: 0 8px 20px rgba(0,0,0,.45);
+  color: inherit;
+}
+
+.card-juego-img-wrap{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.card-juego-img-wrap img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-juego-body{
+  padding: 10px 12px 12px;
+}
+.card-juego-title{
+  font-size: .95rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tag-pill{
+  display: inline-block;
+  background: var(--background-color);
+  color: var(--steam-tag-text);
+  font-size: .7rem;
+  padding: 3px 8px;
+  border-radius: 2px;
+  margin: 0 4px 4px 0;
+}
+
+.carousel-wrap{ position: relative; }
+
+.itch-badge{
+  font-size: .65rem;
+  color: var(--steam-celeste);
+  border: 1px solid var(--steam-celeste);
+  border-radius: 2px;
+  padding: 1px 5px;
+  margin-left: 6px;
+  vertical-align: middle;
+}

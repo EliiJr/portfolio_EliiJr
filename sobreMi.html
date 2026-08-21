@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mi | Elias Riveros</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="sobreMi.html">SOBRE MI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="misJuegos.html">MIS JUEGOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="popcorner.html">POPCORNER</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> 
+
+    <header class="vh-10" style="margin-top: 100px;">
+        <h1>ELÍAS RIVEROS ALE</h1>
+    </header>
+
+    <div>
+        <p>Conductor de televisión y streaming, productor audiovisual, hago narrativa de videojuegos y, en mis tiempos libres, soy bailarín.</p>
+    </div>
+
+    <div>
+        <h2 class="subtitulo">Mi formación</h2>
+    </div>
+
+    <div class="container py-5">
+        <div class="row g-4 justify-content-center">
+            <a href="https://hum.unsa.edu.ar/index.php/carreras-de-grado/ciencias-de-la-conmunicacion" target="_blank" class="col-md-5 col-6 wrapper">
+                <img class="img-fuid rounded logos" src="img/logoHumanidadesBlanco.png" alt="Humanidades UNSa">
+                <p class="unselectable">Licenciado en Ciencias de la Comunicación</p>
+            </a>
+           
+            <a href="https://exactas.unsa.edu.ar/tecnicatura-en-programacion" target="_blank" class="col-md-5 col-6 wrapper">
+                <img class="img-fuid rounded logos" src="img/logoExactas.png" alt="Exactas UNSa" width="200">
+                <p class="unselectable">Estudiante Tecnicatura Universitaria en Programación</p>
+            </a>
+               
+            <a href="https://icmasa.ing.unsa.edu.ar/" target="_blank" class="col-md-5 col-6 wrapper">
+                <img class="img-fuid rounded logos" src="img/logo-cct-salta-jujuy-SIN-FONDO.png" alt="CONICET" width="150">
+                <p class="unselectable">Becario doctoral ICMASA</p>
+            </a>
+        </div>    
+        
+    </div>
+
+    
+
+    <div>
+        <h2 class="subtitulo">Contacto</h2>
+    </div>
+
+    <div>
+        <p>No dudes en contactarme para trabajar juntos o simplemente compartir unas palabras</p>
+    </div>
+
+    <div class="row-justify-content-center col-md-6 container">
+        <form id="form">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre: </label>
+                <input class="form-control bg-dark text-white" type="text" name="nombre" placeholder="Julian Alvarez" required> 
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico: </label>
+                <input class="form-control bg-dark text-white" type="email" name="email" placeholder="jalvarez@spider.com" required> 
+            </div>
+
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje: </label>
+                <textarea class="form-control bg-dark text-white" name="mensaje" placeholder="Mensaje" rows="4" required></textarea> 
+            </div>
+
+            <button class="btn btn-secondary" type="submit" id="btn-submit">Enviar</button>
+        </form>
+    </div>
+
+  <!-- SDK de EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("7tpUkHXEhVFJG6c7m");
+
+    const form = document.getElementById('form');
+    const btn = document.getElementById('btn-submit');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      emailjs.sendForm('service_xo9gheh', 'template_znmxcxn', this)
+        .then(() => {
+          alert('¡Correo enviado con éxito!');
+          form.reset();
+        })
+        .catch((err) => {
+          alert('Error al enviar el correo. Por favor intenta de nuevo.');
+          console.error('EmailJS Error:', err);
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.textContent = 'Enviar';
+        });
+  });
+  </script>
+
+</body>
+</html>

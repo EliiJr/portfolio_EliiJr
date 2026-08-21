@@ -1,19 +1,19 @@
 const juegos = [
     {
         title: "Help Me Breathe",
-        cover: "../img/helpMeBreathe.png",
+        cover: "img/helpMeBreathe.png",
         tags: ["Casual", "Corto", "Global Game Jam"],
         url: "https://cristiansisoy.itch.io/help-me-breathe"
     },
     {
         title: "TRANSitando",
-        cover: "../img/transitando.png",
+        cover: "img/transitando.png",
         tags: ["Novela Visual", "Pixel Art", "Women in Game Jam"],
         url: "https://frijol-pera.itch.io/transitando"
     },
     {
         title: "But They Fly",
-        cover: "../img/ButTheyFly.png",
+        cover: "img/ButTheyFly.png",
         tags: ["Casual", "Corto", "Salta Game Jam"],
         url: "https://cristiansisoy.itch.io/but-they-fly"
     },

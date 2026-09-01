@@ -25,9 +25,9 @@ header {
 
 @font-face {
     font-family: 'motiva-sans';
-    src: url('fonts/MotivaSansThin.woff2') format('woff2'),
-        url('fonts/MotivaSansThin.woff') format('woff'),
-        url('fonts/MotivaSansThin.ttf') format('truetype');
+    src: url('../fonts/MotivaSansThin.woff2') format('woff2'),
+        url('../fonts/MotivaSansThin.woff') format('woff'),
+        url('../fonts/MotivaSansThin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
     font-display: swap;

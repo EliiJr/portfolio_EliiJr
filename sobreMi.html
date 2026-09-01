@@ -81,21 +81,24 @@
     </div>
 
     <div class="row-justify-content-center col-md-6 container">
-        <form id="form">
+        <form id="form" novalidate>
 
             <div class="mb-3">
-                <label for="name" class="form-label">Nombre: </label>
-                <input class="form-control bg-dark text-white" type="text" name="nombre" placeholder="Julian Alvarez" required> 
+                <label for="nombre" class="form-label">Nombre: </label>
+                <input class="form-control bg-dark text-white" type="text" id="nombre" name="nombre" placeholder="Julian Alvarez">
+                <div class="form-error" id="error-nombre"></div>
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Correo Electrónico: </label>
-                <input class="form-control bg-dark text-white" type="email" name="email" placeholder="jalvarez@spider.com" required> 
+                <input class="form-control bg-dark text-white" type="email" id="email" name="email" placeholder="jalvarez@spider.com">
+                <div class="form-error" id="error-email"></div>
             </div>
 
             <div class="mb-3">
                 <label for="mensaje" class="form-label">Mensaje: </label>
-                <textarea class="form-control bg-dark text-white" name="mensaje" placeholder="Mensaje" rows="4" required></textarea> 
+                <textarea class="form-control bg-dark text-white" id="mensaje" name="mensaje" placeholder="Mensaje" rows="4"></textarea>
+                <div class="form-error" id="error-mensaje"></div>
             </div>
 
             <button class="btn btn-secondary" type="submit" id="btn-submit">Enviar</button>

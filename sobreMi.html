@@ -102,20 +102,87 @@
         </form>
     </div>
 
-  <!-- SDK de EmailJS -->
+   <!-- SDK de EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     emailjs.init("7tpUkHXEhVFJG6c7m");
-
+ 
     const form = document.getElementById('form');
     const btn = document.getElementById('btn-submit');
-
+ 
+    const campoNombre = document.getElementById('nombre');
+    const campoEmail = document.getElementById('email');
+    const campoMensaje = document.getElementById('mensaje');
+ 
+    const errorNombre = document.getElementById('error-nombre');
+    const errorEmail = document.getElementById('error-email');
+    const errorMensaje = document.getElementById('error-mensaje');
+ 
+    const MIN_CARACTERES_MENSAJE = 10;
+    const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ 
+    function marcarError(input, elementoError, mensaje){
+      input.classList.add('is-invalid');
+      elementoError.textContent = mensaje;
+    }
+ 
+    function limpiarError(input, elementoError){
+      input.classList.remove('is-invalid');
+      elementoError.textContent = '';
+    }
+ 
+    function validarNombre(){
+      const valor = campoNombre.value.trim();
+      if (valor === ''){
+        marcarError(campoNombre, errorNombre, 'El nombre no puede estar vacío.');
+        return false;
+      }
+      limpiarError(campoNombre, errorNombre);
+      return true;
+    }
+ 
+    function validarEmail(){
+      const valor = campoEmail.value.trim();
+      if (valor === ''){
+        marcarError(campoEmail, errorEmail, 'El correo no puede estar vacío.');
+        return false;
+      }
+      if (!REGEX_EMAIL.test(valor)){
+        marcarError(campoEmail, errorEmail, 'Ingresá un correo electrónico válido (ej: nombre@dominio.com).');
+        return false;
+      }
+      limpiarError(campoEmail, errorEmail);
+      return true;
+    }
+ 
+    function validarMensaje(){
+      const valor = campoMensaje.value.trim();
+      if (valor.length < MIN_CARACTERES_MENSAJE){
+        marcarError(campoMensaje, errorMensaje, `El mensaje debe tener al menos ${MIN_CARACTERES_MENSAJE} caracteres (llevás ${valor.length}).`);
+        return false;
+      }
+      limpiarError(campoMensaje, errorMensaje);
+      return true;
+    }
+ 
+    campoNombre.addEventListener('blur', validarNombre);
+    campoEmail.addEventListener('blur', validarEmail);
+    campoMensaje.addEventListener('blur', validarMensaje);
+ 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-
+ 
+      const nombreValido = validarNombre();
+      const emailValido = validarEmail();
+      const mensajeValido = validarMensaje();
+ 
+      if (!nombreValido || !emailValido || !mensajeValido){
+        return; 
+      }
+ 
       btn.disabled = true;
       btn.textContent = 'Enviando...';
-
+ 
       emailjs.sendForm('service_xo9gheh', 'template_znmxcxn', this)
         .then(() => {
           alert('¡Correo enviado con éxito!');

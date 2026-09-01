@@ -17,6 +17,12 @@ const juegos = [
         tags: ["Casual", "Corto", "Salta Game Jam"],
         url: "https://cristiansisoy.itch.io/but-they-fly"
     },
+     {
+        title: "But They Fly",
+        cover: "img/ButTheyFly.png",
+        tags: ["Casual", "Corto", "Salta Game Jam"],
+        url: "https://cristiansisoy.itch.io/but-they-fly"
+    },
 ];
 
 function renderCards(list){
